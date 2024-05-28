@@ -14574,6 +14574,9 @@ static void CheckImplicitConversion(Sema &S, Expr *E, QualType T,
           return;
 
         DiagnoseImpCast(S, E, T, CC, diag::warn_impcast_float_precision);
+        DiagnoseImpCast(S, E, T, CC, S.getLangOpts().CPlusPlus
+                                 ? diag::note_impcast_float_precision_cplusplus
+                                 : diag::note_impcast_float_precision);
       }
       // ... or possibly if we're increasing rank, too
       else if (Order < 0) {

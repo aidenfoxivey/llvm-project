@@ -4081,6 +4081,10 @@ def err_impcast_complex_scalar : Error<
 def warn_impcast_float_precision : Warning<
   "implicit conversion loses floating-point precision: %0 to %1">,
   InGroup<ImplicitFloatConversion>, DefaultIgnore;
+def note_impcast_float_precision_cplusplus : Note<
+  "replace expression with 'static_cast<float>(<expr>)' to silence this warning">;
+def note_impcast_float_precision : Note<
+  "replace expression with 'float(<expr>)' to silence this warning">;
 def warn_impcast_float_result_precision : Warning<
   "implicit conversion when assigning computation result loses floating-point precision: %0 to %1">,
   InGroup<ImplicitFloatConversion>, DefaultIgnore;
